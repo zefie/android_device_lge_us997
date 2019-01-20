@@ -1,0 +1,2 @@
+add_lunch_combo lineage_us997-userdebug
+add_lunch_combo lineage_us997-eng
