@@ -21,6 +21,9 @@ DEVICE_PATH := device/lge/us997
 
 TARGET_OTA_ASSERT_DEVICE := g6,lucye,us997
 
+# Partitions
+BOARD_CACHEIMAGE_PARTITION_SIZE := 2172649472
+
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_us997_defconfig
 
