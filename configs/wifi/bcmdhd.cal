@@ -72,20 +72,20 @@ rawtempsense=0x1ff
 #throttle_thresh=50
 
 #11b power Cal offset
-pa2gccka0=0xff4c,0x1d82,0xfc8b
-pa2gccka1=0xff68,0x2115,0xfc0f
+pa2gccka0=0xff4c,0x1d52,0xfc8b
+pa2gccka1=0xff68,0x2125,0xfc0f
 #11g power Cal offset
 pa2ga0=0xff4c,0x1cb2,0xfca1
-pa2ga1=0xff31,0x1958,0xfce5
+pa2ga1=0xff31,0x1938,0xfce5
 #11a power Cal offset
 pa5ga0=0xff56,0x1d8c,0xfc70,0xff4c,0x1c51,0xfc92,0xff4a,0x1b77,0xfc9e,0xff44,0x1a67,0xfcb8
 pa5ga1=0xff33,0x1876,0xfce0,0xff38,0x1918,0xfcca,0xff34,0x187b,0xfcda,0xff3b,0x1886,0xfccf
 #40M80M power Cal offset
 pa5gbw4080a0=0xff3e,0x1ca3,0xfc72,0xff33,0x1abe,0xfca6,0xff3b,0x1b15,0xfc99,0xff41,0x1b8d,0xfc8a
 pa5gbw4080a1=0xff34,0x19f1,0xfcaf,0xff30,0x194f,0xfcbf,0xff3b,0x1acf,0xfc93,0xff3a,0x1ab0,0xfc8c
-# CCK Output Power = (82/4=20.5)-1.5 = 19dBm
-maxp2ga0=84
-maxp2ga1=82
+# CCK Output Power = (74/4=18.5)-1.5 = 17dBm
+maxp2ga0=72
+maxp2ga1=72
 # 5G Output Power Set : maxp5ga0 74 = 17dBm (74/4=18.5-1.5=17)
 maxp5ga0=74,74,74,74
 maxp5ga1=74,74,74,74
@@ -101,15 +101,15 @@ cckbw202gpo=0x1110
 
 # C9/C8/M7/M6/M5/M4/M3/M0-2 ( if need to control MCS1 and MCS 2 separately, then use ofdmlrbw202gpo)
 # C9/C8/M7/M6/M5/M4/M3/M0-2 
-#14/14/14/14/14/14/14/16BE
-mcsbw202gpo=0xBBBBBBB8
+#14/14/14/14/14/14/14/15BE
+mcsbw202gpo=0x55555554
 
 # 54/48/36/24M power offset
 #14/14/14/14
-dot11agofdmhrbw202gpo=0xBBBB
+dot11agofdmhrbw202gpo=0x5555
 # MCS1&2(11n&ac 40M) / MCS1&2 (11n&ac 20M) / 12&18Mbps(11a/g) / 6&9(11a/g)
-#-/-/14/16BE
-ofdmlrbw202gpo=0x00B8
+#-/-/14/15BE
+ofdmlrbw202gpo=0x0054
 # C9/C8/M7/M6(54M)/M5(48M)/M4(36M)/M3(24M)/M0.2(18M/12M/9M/6M)
 #14/14/14/14/15/15/15/16 
 mcsbw205glpo=0x66664442
@@ -189,8 +189,9 @@ rssi_delta_5gh_c1=9,9,9,9,9,9
 
 muxenab=0x4
 
-powoffs2gtna0=0,1,-2,-2,-1,-1,0,0,0,4,4,-1,-2,0
-powoffs2gtna1=-1,-1,-4,-4,-4,-5,-3,0,2,4,4,3,1,0
+
+powoffs2gtna0=0,0,-2,-2,-1,-1,0,0,0,0,-1,-1,-2,0
+powoffs2gtna1=-1,-1,-3,-4,-4,-5,-3,-1,0,2,2,1,0,0
 cck_onecore_tx=1
 
 #ed_thresh2g=-63
@@ -200,8 +201,8 @@ cck_onecore_tx=1
 #dynamicsarctrl_2g_2=0xff90
 #dynamicsarctrl_5g_2=0xff90
 #5G TX Compensation parameter(CH36, Ch64, CH100, CH140, CH 144, CH149, CH165)(-15 ~ +3dB)
-powoffs5g20mtna0=-17,-16,-18,0,0,0,-18
-powoffs5g20mtna1=-16,-18,-18,0,0,0,-18
+powoffs5g20mtna0=-17,-16,-18,-16,0,0,-18
+powoffs5g20mtna1=-16,-18,-18,-16,0,0,-18
 #5G TX Compensation parameter(CH38, Ch62, CH102, CH 141 CH151)(-15 ~ +3dB)
 powoffs5g40mtna0=-18,-18,-19,0,0
 powoffs5g40mtna1=-19,-18,-19,0,0
@@ -210,10 +211,9 @@ powoffs5g80mtna0=-16,-16,-18,0,0
 powoffs5g80mtna1=-16,-16,-17,0,0
 
 
-
-sar_limit_mode_1=0x3E3E,0x3E3E,0x3E3E,0x3E3E,0x3E3E
-sar_limit_mode_2=0x3E3E,0x3E3E,0x3E3E,0x3E3E,0x3E3E
-sar_limit_mode_3=0x3E3E,0x3E3E,0x3E3E,0x3E3E,0x3E3E
+sar_limit_mode_1=0x3C3C,0x3E3E,0x3E3E,0x3E3E,0x3E3E
+sar_limit_mode_2=0x3C3C,0x3E3E,0x3E3E,0x3E3E,0x3E3E
+sar_limit_mode_3=0x3C3C,0x3E3E,0x3E3E,0x3E3E,0x3E3E
 
 
 
