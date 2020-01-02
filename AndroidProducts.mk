@@ -15,3 +15,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_us997.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_us997-user \
+    lineage_us997-userdebug \
+    lineage_us997-eng
