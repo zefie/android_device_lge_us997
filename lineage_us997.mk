@@ -18,8 +18,16 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+ifneq ($(wildcard vendor/lineage/config/common_full_phone.mk),)
+  # Inherit some common Lineage stuff.
+  $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+endif
+
+ifneq ($(wildcard vendor/havoc/config/common_full_phone.mk),)
+  # Inherit some common Havoc stuff.
+  $(call inherit-product, vendor/havoc/config/common_full_phone.mk)
+endif
+
 
 # Inherit from us997 device
 $(call inherit-product, device/lge/us997/device.mk)
