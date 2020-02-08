@@ -25,7 +25,18 @@ TARGET_OTA_ASSERT_DEVICE := g6,lucye,us997
 BOARD_CACHEIMAGE_PARTITION_SIZE := 2172649472
 
 # Kernel
-TARGET_KERNEL_CONFIG := lineageos_us997_defconfig
+
+# if Melina config exists, use it, otherwise fall back to lineageos config, and then finally fall back to stock config
+ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/arch/$(TARGET_KERNEL_ARCH)/configs/melina_common_subconfig),)
+  TARGET_KERNEL_CONFIG := melinareborn_$(PRODUCT_DEVICE)_defconfig
+else
+  ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/arch/$(TARGET_KERNEL_ARCH)/configs/lineageos_us997_defconfig),)
+    TARGET_KERNEL_CONFIG := lineageos_$(PRODUCT_DEVICE)_defconfig
+  else
+    # todo: device checking for possible future lucye merge
+    TARGET_KERNEL_CONFIG := lucye_nao_us-perf_defconfig
+  endif
+endif
 
 # inherit from the proprietary version
 -include vendor/lge/us997/BoardConfigVendor.mk

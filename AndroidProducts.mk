@@ -13,10 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_us997.mk
+ifneq ($(wildcard vendor/lineage/config/common_full_phone.mk),)
+  TARGET_OS_VARIANT := lineage
+endif
 
-COMMON_LUNCH_CHOICES := \
-    lineage_us997-user \
-    lineage_us997-userdebug \
-    lineage_us997-eng
+ifneq ($(wildcard vendor/havoc/config/common_full_phone.mk),)
+  TARGET_OS_VARIANT := havoc
+endif
+
+ifneq ($(TARGET_OS_VARIANT),)
+  PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/$(TARGET_OS_VARIANT)_us997.mk
+
+  COMMON_LUNCH_CHOICES := \
+      $(TARGET_OS_VARIANT)_us997-user \
+      $(TARGET_OS_VARIANT)_us997-userdebug \
+      $(TARGET_OS_VARIANT)_us997-eng
+endif
