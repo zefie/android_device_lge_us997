@@ -13,13 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(wildcard vendor/lineage/config/common_full_phone.mk),)
-  TARGET_OS_VARIANT := lineage
-endif
-
-ifneq ($(wildcard vendor/havoc/config/common_full_phone.mk),)
-  TARGET_OS_VARIANT := havoc
-endif
+include $(LOCAL_DIR)/multirom.mk
 
 ifneq ($(TARGET_OS_VARIANT),)
   PRODUCT_MAKEFILES := \

@@ -18,18 +18,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-ifneq ($(wildcard vendor/lineage/config/common_full_phone.mk),)
-  # Inherit some common Lineage stuff.
-  $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-  TARGET_OS_VARIANT := lineage
-endif
-
-ifneq ($(wildcard vendor/havoc/config/common_full_phone.mk),)
-  # Inherit some common Havoc stuff.
-  $(call inherit-product, vendor/havoc/config/common_full_phone.mk)
-  TARGET_OS_VARIANT := havoc
-endif
-
+include $(LOCAL_PATH)/multirom.mk
+ $(call inherit-product, vendor/$(TARGET_OS_VARIANT)/config/common_full_phone.mk)
 
 # Inherit from us997 device
 $(call inherit-product, device/lge/us997/device.mk)
